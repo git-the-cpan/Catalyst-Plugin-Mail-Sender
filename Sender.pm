@@ -4,7 +4,7 @@ use strict;
 use Mail::Sender;
 use Carp qw/croak/;
 
-our $VERSION = '0.01';
+our $VERSION = '0.1';
 
 sub mailsender {
 	my $c = shift;
@@ -33,25 +33,25 @@ Send emails with Catalyst and L<Mail::Sender>.
 
 C<config> accepts the same options as L<Mail::Sender>.
 
-__PACKAGE__->config->{mailsender} = {
-        from => "Thiago Rondon <tbr\@examplennn.com.br>",
-	smtp => "mail.examplennn.com.br",
-	auth => 'LOGIN',
-	authid => "tbr\@examplennn.com.br",
-	authpwd => "password",
-	headers => "MIME-Version: 1.0\r\nContent-type: text/html\r\nContent-Transfer-Encoding: 7bit",
-	debug => "/var/tmp/mail.sender.debug"
-};
+	__PACKAGE__->config->{mailsender} = {
+        	from => "Thiago Rondon <tbr\@examplennn.com.br>",
+		smtp => "mail.examplennn.com.br",
+		auth => 'LOGIN',
+		authid => "tbr\@examplennn.com.br",
+		authpwd => "password",
+		headers => "MIME-Version: 1.0\r\nContent-type: text/html\r\nContent-Transfer-Encoding: 7bit",
+		debug => "/var/tmp/mail.sender.debug"
+	};
 
 =head1 METHODS
 
 C<mailsender()> is MailMsg() shortcut of L<Mail::Sender> to a simple message.
 
-$c->mailsender({
+	$c->mailsender({
                 to => "to@examplennn.com.br",
 		subject => "Plugin Mail::Sender",
 		msg => "Hello",
-});
+	});
 
 =head1 SEE ALSO
 
